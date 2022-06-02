@@ -1,3 +1,7 @@
+Use pip install [package name] or use pip3 install [package name]
+Replace "[package name]" with the package names listed below.
+Please note that you need Python 3 or higher installed.
+
 google_api_python_client==2.33.0
 google_auth_oauthlib==0.4.6
 protobuf==3.19.1
