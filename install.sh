@@ -138,9 +138,9 @@ install_os_requirements () {
 }
 
 install_latest_release () {
-    echo "We are now going to download the code for YT-Spammer-Purge."
-    git clone https://github.com/ThioJoe/YT-Spammer-Purge
-    cd YT-Spammer-Purge || exit 5
+    echo "We are now going to download the code for YT-Spammer-Purge-2."
+    git clone https://github.com/sunnystew22/YT-Spammer-Purge-2
+    cd YT-Spammer-Purge-2 || exit 5
     # Use non-1 exit code for debugging
     git checkout -q -m "$(git describe --abbrev=0 --tags)"
     # Go to latest release
@@ -148,7 +148,7 @@ install_latest_release () {
 
 install_MAIN () {
     clear
-    echo "We will now install YT-Spammer-Purge."
+    echo "We will now install YT-Spammer-Purge-2."
     echo "Continue?"
     confirm || install_fail
     echo "Installing."
@@ -160,7 +160,7 @@ install_MAIN () {
     echo "--------------------------"
 
     install_latest_release
-    # install_latest_release cd's into YT-Spammer-Purge
+    # install_latest_release cd's into YT-Spammer-Purge-2
 
     # Since we've gotten python3 installed:
 
@@ -174,16 +174,16 @@ install_MAIN () {
 }
 
 check_python_requirements () {
-    # This assumes we are in the YT-Spammer-Purge directory
+    # This assumes we are in the YT-Spammer-Purge-2 directory
     echo "Checking installed requirements"
     python3 -c "import pkg_resources; pkg_resources.require(open('requirements.txt',mode='r'))" &>/dev/null || install_python_requirements
 }
 
 update () {
-    # This assumes we are in the YT-Spammer-Purge directory
+    # This assumes we are in the YT-Spammer-Purge-2 directory
     check_python_requirements
     clear
-    echo "We will now attempt to update YT-Spammer-Purge."
+    echo "We will now attempt to update YT-Spammer-Purge-2."
     echo "Current version is $(git describe --abbrev=0 --tags)"
     echo "Continue?"
     confirm || exit 1
@@ -199,21 +199,21 @@ update () {
 
     echo "--------------------------"
     echo "Updated!"
-    echo "Report any bugs to TJoe.io/bug-report"
+    echo "Report any bugs to the GitHub repository."
     exit 0
 }
 
 check_git_missing () {
-    [[ $(git remote get-url origin) == *"YT-Spammer-Purge"* ]] && return 0
-    # If this is a valid YT-Spammer-Purge install, return 0
-    # If this is a fork, with a name different than YT-Spammer-Purge, this check will fail.
-    # If you are running this on a fork, please replace every instance of 'YT-Spammer-Purge' with your fork name.
+    [[ $(git remote get-url origin) == *"YT-Spammer-Purge-2"* ]] && return 0
+    # If this is a valid YT-Spammer-Purge-2 install, return 0
+    # If this is a fork, with a name different than YT-Spammer-Purge-2, this check will fail.
+    # If you are running this on a fork, please replace every instance of 'YT-Spammer-Purge-2' with your fork name.
     clear
-    echo "It looks like you downloaded a .zip of YT-Spammer-Purge"
-    echo "Automated updates do not work on these versions, but you may download the latest version of YT-Spammer-Purge using this script."
-    echo "If you choose to re-download the latest verion of YT-Spammer-Purge using this script, automated updates will be re-enabled."
+    echo "It looks like you downloaded a .zip of YT-Spammer-Purge-2"
+    echo "Automated updates do not work on these versions, but you may download the latest version of YT-Spammer-Purge-2 using this script."
+    echo "If you choose to re-download the latest verion of YT-Spammer-Purge-2 using this script, automated updates will be re-enabled."
     echo "The latest YT-Spammer-Purge with automated updates will be downloaded to a sub-directory of the same name."
-    echo "Would you like to re-install YT-Spammer-Purge?"
+    echo "Would you like to re-install YT-Spammer-Purge-2?"
     confirm && echo "OK, installing." || exit 1
     install_MAIN
     exit 0
